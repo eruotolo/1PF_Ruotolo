@@ -1,0 +1,19 @@
+<mat-toolbar [ngStyle]="navStyle">
+    <a href=""><img alt="logo" ngSrc="{{ logoPrincipal }}" width="40" height="48"></a>
+    <span [ngStyle]="{'color':'#ffffff'}">Mi App Estudiantes</span>
+    <span class="spacer"></span>
+
+    <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon class="profile-menu">account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+            <mat-icon>manage_accounts</mat-icon>
+            Profile
+        </button>
+        <button mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            Logout
+        </button>
+    </mat-menu>
+</mat-toolbar>

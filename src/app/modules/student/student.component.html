@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row list-students">
+        <div class="col-6">
+            <h2>Listado de Estudiantes</h2>
+        </div>
+        <div class="col-6">
+            <button
+                mat-flat-button
+                color="primary"
+                [ngStyle]="{ float: 'right' }"
+                (click)="abrirPopUpStudent()"
+            >
+                Agregar Nuevo Estudiante
+            </button>
+        </div>
+    </div>
+    <div class="row buscador">
+        <div class="col-12 d-flex justify-content-center flex-wrap pb-5">
+            <app-student-table [dataSource]="students" (deleteUser)="onDeleteStudent($event)"></app-student-table>
+        </div>
+    </div>
+</div>

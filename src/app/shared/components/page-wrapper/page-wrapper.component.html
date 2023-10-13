@@ -1,0 +1,48 @@
+<mat-drawer-container class="dashboard" autosize>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1 box-menu d-flex align-items-center">
+                <div class="example-sidenav-content">
+                    <button
+                        mat-icon-button
+                        (click)="drawer.toggle()"
+                        class="example-icon" >
+                        <mat-icon [ngStyle]="btnHamburguesa" >menu</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="col-11 box-toolbar">
+                <app-toolbar></app-toolbar>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SIDEBAR -->
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <button
+            mat-icon-button
+            (click)="drawer.toggle()"
+            class="icon-close" >
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <!-- INSERTAR MODULO DE SIDEBAR -->
+
+        <p>Auto-resizing sidenav</p>
+        <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+
+    </mat-drawer>
+
+    <!-- ACA SE LLAMA AL CONTENEDOR PRINCIPAL DEL RESTO DE LAS PAGINAS -->
+
+    <div class="container cont-principal">
+        <div class="row">
+            <div class="col-12">
+                <app-home></app-home>
+
+            </div>
+        </div>
+    </div>
+
+</mat-drawer-container>
