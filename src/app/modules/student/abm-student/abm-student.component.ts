@@ -75,11 +75,28 @@ export class AbmStudentComponent {
         }
     }
 
-    onSubmit(): void {
+    /*onSubmit(): void {
         if (this.studentForm.invalid) {
+            alert(
+                'El formulario es inválido. Por favor, complete los campos correctamente.',
+            );
             this.studentForm.markAllAsTouched();
         } else {
             this.matDialogRef.close(this.studentForm.value);
+        }
+    }*/
+    onSubmit(): void {
+        if (this.studentForm.invalid) {
+            // Muestra un alert si el formulario es inválido
+            alert(
+                'El formulario es inválido. Por favor, complete los campos correctamente.',
+            );
+            this.studentForm.markAllAsTouched();
+        } else {
+            const formData = this.studentForm.value;
+            // Muestra un alert con los datos del formulario en formato JSON
+            alert(JSON.stringify(formData, null, 2));
+            this.matDialogRef.close(formData);
         }
     }
 }
