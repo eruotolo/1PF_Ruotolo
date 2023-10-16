@@ -1,34 +1,36 @@
 ## Diagrama Web
+
 src/
 |-- app/
-|   |-- core/
-|   |   |-- layout/
-|   |   |   |-- sidebar/
-|   |   |   |   |-- sidebar.component.ts
-|   |   |   |-- toolbar/
-|   |   |   |   |-- toolbar.component.ts
-|   |   |   |-- footer/
-|   |   |   |   |-- footer.component.ts
-|   |   |-- services/
-|   |   |-- guards/
-|   |   |-- interceptors/
-|   |-- shared/
-|   |   |-- components/
-|   |   |   |-- page-wrapper/
-|   |   |   |   |-- page-wrapper.component.ts
-|   |   |-- directives/
-|   |   |-- pipes/
-|   |   |-- interfaces/
-|   |   |-- dialogs/
-|   |-- modules/
-|   |   |-- home/
-|   |   |   |-- home.component.ts
-|   |   |-- about/
-|   |   |   |-- about.component.ts
-|   |   |-- contact/
-|   |   |   |-- contact.component.ts
-|   |-- app.module.ts
-|   |-- app-routing.module.ts
+| |-- core/
+| | |-- config/
+| | |-- layout/
+| | | |-- sidebar/
+| | | | |-- sidebar.component.ts
+| | | |-- toolbar/
+| | | | |-- toolbar.component.ts
+| | | |-- footer/
+| | | | |-- footer.component.ts
+| | |-- services/
+| | |-- guards/
+| | |-- interceptors/
+| |-- shared/
+| | |-- components/
+| | | |-- page-wrapper/
+| | | | |-- page-wrapper.component.ts
+| | |-- directives/
+| | |-- pipes/
+| | |-- interfaces/
+| | |-- dialogs/
+| |-- modules/
+| | |-- home/
+| | | |-- home.component.ts
+| | |-- about/
+| | | |-- about.component.ts
+| | |-- contact/
+| | | |-- contact.component.ts
+| |-- app.module.ts
+| |-- app-routing.module.ts
 |-- assets/
 |-- environments/
 |-- index.html

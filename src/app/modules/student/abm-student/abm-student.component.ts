@@ -35,11 +35,11 @@ export class AbmStudentComponent {
     // CONTROL DE VALIDACIÓN
     nameControl = new FormControl('', [
         Validators.required,
-        Validators.minLength(4),
+        Validators.minLength(2),
     ]);
     lastnameControl = new FormControl('', [
         Validators.required,
-        Validators.minLength(4),
+        Validators.minLength(2),
     ]);
     ageControl = new FormControl('', [
         Validators.required,
@@ -52,7 +52,7 @@ export class AbmStudentComponent {
     ]);
     courseControl = new FormControl('', [
         Validators.required,
-        Validators.minLength(6),
+        Validators.minLength(3),
     ]);
 
     // CONSTRUCTOR

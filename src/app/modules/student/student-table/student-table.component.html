@@ -48,7 +48,7 @@
             <button mat-flat-button (click)="deleteUser.emit(element.id)">
                 <mat-icon>delete_forever</mat-icon>
             </button>
-            <button mat-flat-button>
+            <button mat-flat-button (click)="editUser.emit(element)">
                 <mat-icon>edit</mat-icon>
             </button>
         </td>

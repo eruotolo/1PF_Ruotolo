@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Student } from '../../../shared/interfaces/student.student';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
     selector: 'app-student-table',
@@ -12,6 +11,9 @@ export class StudentTableComponent {
 
     @Output()
     deleteUser = new EventEmitter<number>();
+
+    @Output()
+    editUser = new EventEmitter<Student>();
 
     displayedColumns: string[] = [
         'id',

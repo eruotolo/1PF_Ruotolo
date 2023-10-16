@@ -104,32 +104,55 @@ export class StudentComponent {
         },
     ];
 
-    // CONSTRUCTOR DIALOG
-    private dataSource: any;
-
     constructor(private dialogStudent: MatDialog) {}
 
     // AGREGAR ESTUDIANTE
-    abrirPopUpStudent(): void {
-        /*this.dialogStudent.open(StudentDialogComponent, {
-            width: '820px',
-        });*/
+
+    /*abrirPopUpStudent(): void {
+        // Encontrar el máximo id actual
+        const maxId = Math.max(
+            ...this.students.map((student) => student.id),
+            0,
+        );
+
         this.dialogStudent
             .open(StudentDialogComponent)
             .afterClosed()
             .subscribe({
                 next: (v) => {
                     if (!!v) {
-                        this.students = [
-                            ...this.students,
-                            {
-                                ...v,
-                                id: this.dataSource.data.length + 1,
-                            },
-                        ];
+                        // Asignar un nuevo id incrementando el máximo en 1
+                        v.id = maxId + 1;
+                        this.students = [...this.students, v];
                     }
                 },
             });
+    }*/
+    abrirPopUpStudent(): void {
+        const maxId = Math.max(
+            ...this.students.map((student) => student.id),
+            0,
+        );
+
+        const newStudent: Student = {
+            id: maxId + 1,
+            name: '',
+            lastname: '',
+            age: 0,
+            email: '',
+            course: '',
+            regDate: new Date(),
+        };
+
+        const dialogRef = this.dialogStudent.open(StudentDialogComponent, {
+            data: newStudent,
+        });
+
+        dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+                this.students = [...this.students, result];
+            }
+        });
     }
 
     //EDITAR ESTUDIANTE
