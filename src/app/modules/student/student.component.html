@@ -16,7 +16,10 @@
     </div>
     <div class="row buscador">
         <div class="col-12 d-flex justify-content-center flex-wrap pb-5">
-            <app-student-table [dataSource]="students" (deleteUser)="onDeleteStudent($event)"></app-student-table>
+            <app-student-table
+                [dataSource]="students"
+                (deleteUser)="onDeleteStudent($event)"
+            ></app-student-table>
         </div>
     </div>
 </div>

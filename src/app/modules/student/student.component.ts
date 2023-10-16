@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Student } from '../../shared/interfaces/student.student';
 
 import { MatDialog } from '@angular/material/dialog';
@@ -105,14 +105,53 @@ export class StudentComponent {
     ];
 
     // CONSTRUCTOR DIALOG
+    private dataSource: any;
+
     constructor(private dialogStudent: MatDialog) {}
 
+    // AGREGAR ESTUDIANTE
     abrirPopUpStudent(): void {
-        this.dialogStudent.open(StudentDialogComponent, {
+        /*this.dialogStudent.open(StudentDialogComponent, {
             width: '820px',
-        });
+        });*/
+        this.dialogStudent
+            .open(StudentDialogComponent)
+            .afterClosed()
+            .subscribe({
+                next: (v) => {
+                    if (!!v) {
+                        this.students = [
+                            ...this.students,
+                            {
+                                ...v,
+                                id: this.dataSource.data.length + 1,
+                            },
+                        ];
+                    }
+                },
+            });
     }
 
+    //EDITAR ESTUDIANTE
+
+    onEditStudent(student: Student): void {
+        this.dialogStudent
+            .open(StudentDialogComponent, {
+                data: student,
+            })
+            .afterClosed()
+            .subscribe({
+                next: (v) => {
+                    if (!!v) {
+                        this.students = this.students.map((s) =>
+                            s.id === student.id ? { ...s, ...v } : s,
+                        );
+                    }
+                },
+            });
+    }
+
+    //ELIMINAR ESTUDIANTE
     onDeleteStudent(studentId: number): void {
         this.students = this.students.filter((s) => s.id !== studentId);
     }

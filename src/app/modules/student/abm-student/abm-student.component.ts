@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
     AbstractControl,
     FormBuilder,
@@ -6,7 +6,8 @@ import {
     FormGroup,
     Validators,
 } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Student } from '../../../shared/interfaces/student.student';
 
 // FUNCIÓN CONTROL DE INGRESO EMAIL
 function emailValidator(
@@ -58,6 +59,8 @@ export class AbmStudentComponent {
     constructor(
         private formBuilder: FormBuilder,
         private matDialogRef: MatDialogRef<AbmStudentComponent>,
+        // RECIBO DATA
+        @Inject(MAT_DIALOG_DATA) public student?: Student,
     ) {
         this.studentForm = this.formBuilder.group({
             name: this.nameControl,
@@ -66,6 +69,10 @@ export class AbmStudentComponent {
             age: this.ageControl,
             course: this.courseControl,
         });
+
+        if (this.student) {
+            this.studentForm.patchValue(this.student);
+        }
     }
 
     onSubmit(): void {
