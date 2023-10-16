@@ -107,7 +107,6 @@ export class StudentComponent {
     constructor(private dialogStudent: MatDialog) {}
 
     // AGREGAR ESTUDIANTE
-
     /*abrirPopUpStudent(): void {
         // Encontrar el máximo id actual
         const maxId = Math.max(
@@ -156,7 +155,6 @@ export class StudentComponent {
     }
 
     //EDITAR ESTUDIANTE
-
     onEditStudent(student: Student): void {
         this.dialogStudent
             .open(StudentDialogComponent, {
