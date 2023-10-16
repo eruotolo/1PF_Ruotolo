@@ -143,6 +143,8 @@ export class StudentComponent {
             regDate: new Date(),
         };
 
+        /*console.log('Nuevo estudiante:', newStudent);*/
+
         const dialogRef = this.dialogStudent.open(StudentDialogComponent, {
             data: newStudent,
         });

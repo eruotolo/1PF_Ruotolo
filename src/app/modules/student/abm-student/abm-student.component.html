@@ -66,6 +66,7 @@
                             <input
                                 [formControl]="ageControl"
                                 matInput
+                                type="number"
                             >
                             <mat-error *ngIf="ageControl.hasError('required')">
                                 Este campo es requerido
